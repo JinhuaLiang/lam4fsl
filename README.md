@@ -20,7 +20,6 @@ Please take a look at `scripts` for usage examples.
 
 ## Citation
 To be released soon.
-```
 
 ## Acknowledge
 This repo is build upon the great jobs of [Microsoft CLAP](https://github.com/microsoft/CLAP) and [LAION CLAP](https://github.com/LAION-AI/CLAP).
