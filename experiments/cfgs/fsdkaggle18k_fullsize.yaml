@@ -1,0 +1,44 @@
+# EXPERIMENT SETTING INTERFACE
+storage_pth: path/to/storage/space  # it is recommended to change this variable via bash script
+database: fsdkaggle18k
+model_name: ms_clap
+model_weights_path: ${storage_pth}/jinhua/ALM4FSL/ckpts/${model_name}_weights.pt
+
+# [Optaional] DETAILED EXPERIMENT SETTINGS
+fewshot:
+  # ALGORITHM
+  adapter: xattention
+
+  # FEWSHOT SETTING
+  n_task: 1
+  n_class: 41
+  n_supports: 1
+  n_queries: 8
+
+  # TRAINING SETTING
+  batch_size: 128
+  fine_tune: false
+  train_epochs: 15
+  learning_rate: 0.0001
+
+  a: 1.0  # over_all = a * fewshot_logits + zeroshot_logits
+  train_a: false
+  b: 5.5  # fewshot_logits = torch.exp(- b + b * attention) @ support_onehots
+
+  xattention:
+    disturb: false
+
+# DATABASE SETTINGS
+fsdkaggle18k:
+  audio_dir: [
+    '${storage_pth}/datasets/FSDKaggle2018/FSDKaggle2018.audio_train',
+    '${storage_pth}/datasets/FSDKaggle2018/FSDKaggle2018.audio_test'
+  ]
+  csv_path: [
+    '${storage_pth}/datasets/FSDKaggle2018/FSDKaggle2018.meta/train_post_competition.csv', 
+    '${storage_pth}/datasets/FSDKaggle2018/FSDKaggle2018.meta/test_post_competition_scoring_clips.csv'
+  ]
+
+hydra:
+  mode: MULTIRUN
+  output_subdir: null

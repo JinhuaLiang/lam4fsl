@@ -1,0 +1,48 @@
+# EXPERIMENT SETTING INTERFACE
+storage_pth: path/to/storage/space  # it is recommended to change this variable via bash script
+database: esc50
+model_name: ms_clap
+model_weights_path: ${storage_pth}/jinhua/ALM4FSL/ckpts/${model_name}_weights.pt
+
+# [Optaional] DETAILED EXPERIMENT SETTINGS
+fewshot:
+  # ALGORITHM
+  adapter: xattention
+
+  # FEWSHOT SETTING
+  n_task: 1
+  n_class: 50
+  n_supports: 32  # `n_sample` per class in the finetune algorithm
+  n_queries: 8
+
+  # TRAINING SETTING
+  fine_tune: false
+  batch_size: 20 # works for fine tune
+  train_epochs: 15
+  learning_rate: 0.0001
+
+  a: 1.0  # over_all = a * fewshot_logits + zeroshot_logits
+  train_a: false
+  b: 5.5  # fewshot_logits = torch.exp(- b + b * attention) @ support_onehots
+
+  xattention:
+    disturb: false
+
+# DATABASE SETTINGS
+esc50:
+  audio_dir: ${storage_pth}/datasets/ESC-50/audio
+  csv_path: ${storage_pth}/datasets/ESC-50/meta/esc50.csv
+
+fsdkaggle18k:
+  audio_dir: [
+    '${storage_pth}/datasets/FSDKaggle2018/FSDKaggle2018.audio_train',
+    '/data/EECS-MachineListeningLab/datasets/FSDKaggle2018/FSDKaggle2018.audio_test'
+  ]
+  csv_path: [
+    '${storage_pth}/datasets/FSDKaggle2018/FSDKaggle2018.meta/train_post_competition.csv', 
+    '${storage_pth}/datasets/FSDKaggle2018/FSDKaggle2018.meta/test_post_competition_scoring_clips.csv'
+  ]
+
+hydra:
+  mode: MULTIRUN
+  output_subdir: null
