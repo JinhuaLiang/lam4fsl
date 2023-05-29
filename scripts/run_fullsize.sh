@@ -20,7 +20,7 @@ ADAPTER=xattention # match, xattention
 LEARNING_RATE=0.0001,0.0005,0.001 #0.0001,0.001
 TRAIN_A=True
 
-CUDA_VISIBLE_DEVICES=-1 python3 ${EXPERIMENT}.py \
+CUDA_VISIBLE_DEVICES=-1 python3 ${WORK_DIR}/${EXPERIMENT}.py \
 storage_pth=${STORAGE_DIR} \
 model_name=${MODEL_NAME} \
 fewshot.fine_tune=${FINE_TUNE} \

@@ -23,7 +23,7 @@ N_EPOCHS=0
 ADAPTER=match # match
 TRAIN_A=False
 
-python3 ${EXPERIMENT}.py \
+python3 ${WORK_DIR}/${EXPERIMENT}.py \
 storage_pth=${STORAGE_DIR} \
 model_name=${MODEL_NAME} \
 database=${DATABASE} \

@@ -8,7 +8,7 @@ N_EPOCHS=200
 LEARNING_RATE=0.001
 BATCH_SIZE=40
 
-python3 finetune.py \
+python3 ${WORK_DIR}/finetune.py \
 storage_pth=${STORAGE_DIR} \
 model_name=${MODEL_NAME} \
 fewshot.n_supports=${N_SUPPORTS} \

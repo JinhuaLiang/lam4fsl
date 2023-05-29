@@ -1,4 +1,4 @@
-# CLAP
+# Training-efficient (Treff) adapter for contrastive language-audio models
 
 This is the official repo for the INTERSPEECH2023 paper "Adapting Language-Audio Models as Few-Shot Audio Learners". We proposed Treff adapter to boostrap language-audio pretraining model (such as CLAPs) with a few of labelled examples. It beats the zero-shot classifier and existing few-shot learning methods even WITHOUT training.
 
@@ -15,7 +15,8 @@ Alternatively, you may also want to try out other version of CLAP model in [Pret
 
 ## Usage
 
-Please take a look at `scripts` for usage examples. 
+Please take a look at [scripts](https://github.com/JinhuaLiang/lam4fsl/tree/main/scripts) for usage examples. Ones may need to change the `WORK_DIR` and `STORAGE_DIR` to their custom direction. Also, to try out Treff adapter in more scenarios, one can directly adjust hyper-parameters, such as `MODEL_NAME` and `BATCH_SIZE`.
+
 
 
 ## Citation
