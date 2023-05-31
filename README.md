@@ -21,6 +21,7 @@ Please take a look at [scripts](https://github.com/JinhuaLiang/lam4fsl/tree/main
 
 ## Citation
 If you are using this repo, please cite this work.
+```
 @misc{liang2023adapting,
       title={Adapting Language-Audio Models as Few-Shot Audio Learners}, 
       author={Jinhua Liang and Xubo Liu and Haohe Liu and Huy Phan and Emmanouil Benetos and Mark D. Plumbley and Wenwu Wang},
@@ -29,6 +30,6 @@ If you are using this repo, please cite this work.
       archivePrefix={arXiv},
       primaryClass={eess.AS}
 }
-
+```
 ## Acknowledge
 This repo is build upon the great jobs of [Microsoft CLAP](https://github.com/microsoft/CLAP) and [LAION CLAP](https://github.com/LAION-AI/CLAP).
